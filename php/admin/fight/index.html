@@ -1,0 +1,629 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>英雄模拟打斗</title>
+<meta name="viewport" content="initial-scale=1.0,width=device-width" />
+<style>
+* {
+	margin: 0; 
+	padding: 0;
+
+	-moz-transition-property:background-color;  
+ 	-moz-transition-duration: 0.20s;  
+ 	-moz-transition-timing-function: linear;
+ 	
+ 	-webkit-transition-property:background-color;  
+ 	-webkit-transition-duration: 0.20s;  
+ 	-webkit-transition-timing-function: linear; 
+ 	
+ 	-o-transition-property:background-color;  
+ 	-o-transition-duration: 0.20s;  
+ 	-o-transition-timing-function: linear;   
+	
+	transition-property:background-color;
+	transition-duration: 0.20s;
+	transition-timing-function: linear;
+}
+
+body {
+	font-family:  "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	line-height: 1.2em; 
+	background-color: #f3f3f3;
+	background-image: url(images/soft_wallpaper.png);
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: 0px 0px; 
+	color: #444;
+	height: 100%;
+	width: auto;
+}
+#wrapper {max-width: 850px; margin: 60px auto 30px; padding:60px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); position: relative;}
+ul {margin: 0 0 0 15px; position: relative;}
+li {margin: 0 0 5px 0; font-size: 16px;}
+p {text-align: justify; font-size: 16px;}
+.clear {clear: both;}
+a {color: #444; text-decoration: none;}
+a:hover {text-decoration:underline;}
+
+#backgroundImg {
+
+}
+
+/* ------------------------*/
+/*------H TAG STUFF-------*/
+/* ----------------------*/
+h1,h2,h3,h4,h5,h6 {font-weight: normal;}
+h3 {font-weight: bold; font-size: 16px}
+
+/* --------------------------*/
+/*---SECTION TITLES STUFF---*/
+/* ------------------------*/
+h2.sectionHead {
+	clear: both; 
+	font:bold 20px/12px 'verdana',sans-serif;
+	margin: 60px -60px;
+	border-left: 52px solid #444;
+	color: #444;
+	padding:1px 0 0 8px;
+	letter-spacing: -2px;
+	text-transform: uppercase;
+	position: relative;
+}
+h2.sectionHead:before {
+	content: "";
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	left: -105px;
+	top: -15px;
+	background-image: url(images/icons.png);
+}
+
+h2#titleName {margin: 20px -60px 10px;}
+
+h2#ribbon:before {background-position: left -45px;}
+h2#tools:before {background-position: left top;}
+h2#learn:before {background-position: right top;}
+h2#eye:before {background-position: -90px top;}
+h2#clock:before {background-position: -45px top;}
+h2#chat:before {background-position: -45px bottom;}
+h2#titleName:before {background-position: -90px bottom;}
+h2#contact:before {background-position: right bottom;}
+
+/* ---------------------------*/
+/*---RECOMMENDATIONS STUFF---*/
+/* -------------------------*/
+ul#recommends li {margin: 0 0 30px 0; clear: both;}
+ul#recommends li > h3 {background: #fafafa; color: #ccc; padding-left: 5px; line-height: 25px; margin:0 0 30px -5px;}
+
+
+/* ------------------------*/
+/*---HONORS STUFF---------*/
+/* ----------------------*/
+#honorsAwards li {padding-left: 5px; margin-bottom: 8px;}
+
+
+/* --------------------------*/
+/*---GENERAL LAYOUT STUFF---*/
+/* ------------------------*/
+ul#jobs,
+ul#schools,
+ul#recommends,
+ul#seenOn {margin: 0; list-style: none;}
+
+ul#jobs li,
+ul#schools li,
+ul#recommends li {margin: 0 0 20px 0; clear: both;}
+
+ul#jobs li .details,
+ul#schools li .details,
+ul#recommends li .details {float: left; width: 40%}
+ul#jobs li p,
+ul#schools li > p,
+ul#recommends li > p {float: right; width: 57%; margin-bottom: 25px;}
+
+.details h5 {font-style: italic;}
+
+.baoji {color:#880000}
+.bisha {color:#FF0088}
+.jiashen {color:#FF5511}
+.shengjian {color:#AA7700}
+.zhongji {color:#888800}
+.shanbi {color:#00FF00}
+.gedang {color:#00FFFF}
+.huixue {color:#0066FF}
+.chongsheng {color:#0000FF}
+.jianren {color:#5500FF}
+
+.shanghai {color:#FF0000}
+.jiaxue {color:#008844}
+
+</style>
+<script>
+var oleft = {};
+var left  = {};
+var oright = {};
+var right  = {};
+var rounds = 1;
+var index  = 1;
+var thisSeat = 0;
+var huihe = [];
+huihe[0] = [];
+var $e = function( id ) {
+	return document.getElementById( id );
+};
+
+var testRound = function( seat ){
+	if ( !thisSeat )
+	{
+		thisSeat = seat;
+	}
+	else
+	{
+		//alert( seat + '--' + thisSeat + '--' + rounds );
+		if ( ( seat > 6 ) && ( thisSeat > 6 ) )
+		{
+			if ( seat <= thisSeat )
+			{
+				rounds++;
+			}
+			thisSeat = seat;
+		}
+		else if ( ( seat < 7 ) && ( thisSeat < 7 ) )
+		{
+			if ( seat <= thisSeat )
+			{
+				rounds++;
+			}
+			thisSeat = seat;
+		}
+	}
+};
+
+var loadJS = function ( params ) {
+	var head = document.getElementsByTagName("head")[0];
+	var script = document.createElement('script');
+	script.onload = script.onreadystatechange = script.onerror = function () {
+		if (script && script.readyState && /^(?!(?:loaded|complete)$)/.test(script.readyState))
+		{
+			return;
+		}
+		script.onload = script.onreadystatechange = script.onerror = null;
+		script.src = '';
+		script.parentNode.removeChild(script);
+		script = null;
+		if ( params.callback && ( typeof( params.callback ) == 'function' ) )
+		{
+			params.callback();
+		}
+	};
+	script.charset = params.charset || document.charset || document.characterSet || 'UTF-8';
+	script.src = params.src;
+	try {
+		head.appendChild(script);
+	} catch (exp) {}
+};
+
+var dataTemplate = function( tpl, data ){
+	var _template = tpl.match(/\<#[\s\S]*#\>/gi);
+	var outPrint="";
+	var template = _template[0].replace(/(\<#)|(#\>)/gi,"");
+	for ( var i = 0, len = data.length; i < len; i++ )
+	{
+		var matchs = template.match(/\{[\S]*\}/gi);
+		var temp="";
+		for ( var j = 0, _len = matchs.length; j < _len; j++ )
+		{
+			if ( temp == "" )
+			{
+				temp = template;
+			}
+			var re_match = matchs[j].replace(/[\{\}]/gi,"");
+			temp = temp.replace( matchs[j], data[i][re_match] );
+		}
+		outPrint += temp;
+	}
+
+	return tpl.replace(/\<#[\s\S]*#\>/gi, outPrint);
+};
+
+var deadList = [];
+var list = [ 0, 4, 1, 11, 14, 5, 2, 12, 15, 6, 3, 13, 16];
+var initNobody = function(){
+	var aa = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+	for ( var k in left )
+	{
+		aa[left[k]['seat']] = 1;
+	}
+	for ( var k in right )
+	{
+		aa[right[k]['seat']] = 1;
+	}
+	for ( var i = 1, len = list.length; i < len; i++ )
+	{
+		if ( aa[list[i]] == 0 )
+		{
+			list[i] = 'X';
+		}
+	}
+};
+
+var showResult = function( data ){
+	var hh    = data['battle']['huihe'];
+	var stand = data['battle']['stand'];
+	var i, j, k, len;
+	var desc, hero;
+	var lnick = '', rnick = '', skill = '', effect = '', range = '', hurt;
+
+	desc = hero = '';
+	for ( i = 0, len = stand['attack'].length; i < len; i++ )
+	{
+		hero += '站位:' + stand['attack'][i]['seat'] + '&nbsp;hid:' + stand['attack'][i]['hid'] + '&nbsp;等级:' + stand['attack'][i]['level'] + '&nbsp;品质:' + stand['attack'][i]['quality'] + '&nbsp;血量:' + stand['attack'][i]['blood'] + '&nbsp;战力:' + stand['attack'][i]['battle'] + '<br/>';
+
+		oleft[stand['attack'][i]['hid']] = stand['attack'][i]['blood'];
+		left[stand['attack'][i]['hid']]  = { 'blood' : stand['attack'][i]['blood'], 'seat' : stand['attack'][i]['seat']};
+	}
+	desc += '<li><div class="details"><h3>左边英雄信息</h3></div><p>' + hero + '</p></li>';
+
+	hero = '';
+	for ( i = 0, len = stand['def'].length; i < len; i++ )
+	{
+		hero += '站位:' + stand['def'][i]['seat'] + '&nbsp;hid:' + stand['def'][i]['hid'] + '&nbsp;等级:' + stand['def'][i]['level'] + '&nbsp;品质:' + stand['def'][i]['quality'] + '&nbsp;血量:' + stand['def'][i]['blood'] + '&nbsp;战力:' + stand['def'][i]['battle'] + '<br/>';
+
+		oright[stand['def'][i]['hid']] = stand['def'][i]['blood'];
+		right[stand['def'][i]['hid']]  = { 'blood' : stand['def'][i]['blood'], 'seat' : stand['def'][i]['seat'] };
+	}
+	desc += '<li><div class="details"><h3>右边英雄信息</h3></div><p>' + hero + '</p></li>';
+	$e( 'schools' ).innerHTML = desc;
+
+	desc = '';
+	for ( i = 0, len = hh.length; i < len; i++ )
+	{
+		hurt = '';
+		if ( hh[i]['mid']['att']['seat'] > 6 )
+		{
+			lnick = '右边';
+			rnick = '左边';
+		}
+		else
+		{
+			lnick = '左边';
+			rnick = '右边';
+		}
+
+		if ( hh[i]['mid']['att']['type'] == 1 )
+		{
+			if ( hh[i]['mid']['att']['range'] == 100 )
+			{
+				range = lnick + '<b>[' + hh[i]['mid']['att']['seat'] + ']</b>' + hh[i]['mid']['att']['hid'] + '全体伤害' + rnick;
+			}
+			else
+			{
+				range = lnick + '<b>[' + hh[i]['mid']['att']['seat'] + ']</b>' + hh[i]['mid']['att']['hid'] + ' VS ' + rnick + '<b>[' + hh[i]['mid']['def'][0]['seat'] + ']</b>' + hh[i]['mid']['def'][0]['hid'];
+			}
+			if ( hh[i]['mid']['att']['effect'] == 1 )
+			{
+				range += '&nbsp;<font class="baoji">暴击</font>';
+			}
+			else if ( hh[i]['mid']['att']['effect'] == 2 )
+			{
+				range += '&nbsp;<font class="bisha">必杀</font>';
+			}
+			else if ( hh[i]['mid']['att']['effect'] == 3 )
+			{
+				range += '&nbsp;<font class="jiashen">加深</font>';
+			}
+			else if ( hh[i]['mid']['att']['effect'] == 4 )
+			{
+				range += '&nbsp;<font class="shengjian">圣剑</font>';
+			}
+			else if ( hh[i]['mid']['att']['effect'] == 5 )
+			{
+				range += '&nbsp;<font class="zhongji">重击</font>';
+			}
+
+			for ( j = 0, k = hh[i]['mid']['def'].length; j < k; j++ )
+			{
+
+				if ( hh[i]['mid']['def'][j]['effect'] == 1 )
+				{
+					hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '<font class="shanbi">闪避</font>，';
+					hurt += '受到<font class="shanghai">' + hh[i]['mid']['def'][j]['drop'] + '</font>伤害，剩余血量' + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+				}
+				else if ( hh[i]['mid']['def'][j]['effect'] == 2 )
+				{
+					hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '<font class="gedang">格挡</font>，';
+					hurt += '受到<font class="shanghai">' + hh[i]['mid']['def'][j]['drop'] + '</font>伤害，剩余血量' + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+				}
+				else if ( hh[i]['mid']['def'][j]['effect'] == 3 )
+				{
+					hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '<font class="jianren">坚韧</font>，';
+					hurt += '受到<font class="shanghai">' + hh[i]['mid']['def'][j]['drop'] + '</font>伤害，剩余血量' + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+				}
+				else if ( hh[i]['mid']['def'][j]['effect'] == 4 )
+				{
+					hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '<font class="huixue">回血</font>，';
+					hurt += '受到<font class="shanghai">' + hh[i]['mid']['def'][j]['drop'] + '</font>伤害，恢复<font class="jiaxue">' + hh[i]['end']['def'][j]['value'] + '</font>血量，剩余血量' + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+				}
+				else if ( hh[i]['mid']['def'][j]['effect'] == 5 )
+				{
+					hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '<font class="chongsheng">重生</font>，';
+					hh[i]['mid']['def'][j]['blood'] = hh[i]['end']['def'][j]['value'];
+					hurt += '恢复<font class="jiaxue">' + hh[i]['end']['def'][j]['value'] + '</font>血量，剩余血量' + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+				}
+				else
+				{
+				    hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '受到<font class="shanghai">' + hh[i]['mid']['def'][j]['drop'] + '</font>伤害，剩余血量' + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+				}
+				if ( hh[i]['mid']['def'][j]['dead'] == 1 )
+				{
+					hurt += rnick + hh[i]['mid']['def'][j]['hid'] + '阵亡<br/>';
+				}
+				heroBlood( hh[i]['mid']['def'][j]['seat'], hh[i]['mid']['def'][j]['hid'], hh[i]['mid']['def'][j]['blood'] );
+				//console.log( hh[i]['mid']['def'][j]['seat'], hh[i]['mid']['def'][j]['hid'], hh[i]['mid']['def'][j]['blood'] );
+
+				if ( typeof( huihe[index] ) != 'Array' )
+				{
+					huihe[index] = [];
+				}
+				huihe[index].push( { 'seat' : hh[i]['mid']['def'][j]['seat'], 'blood' : hh[i]['mid']['def'][j]['blood'] } );
+			}
+		}
+		else
+		{
+			if ( hh[i]['mid']['att']['range'] == 100 )
+			{
+				range = lnick + '<b>[' + hh[i]['mid']['att']['seat'] + ']</b>' + hh[i]['mid']['att']['hid'] + '全体加血';
+			}
+			else
+			{
+				range = lnick + '<b>[' + hh[i]['mid']['att']['seat'] + ']</b>' + hh[i]['mid']['att']['hid'] + '给' + lnick + '<b>[' + hh[i]['mid']['def'][0]['seat'] + ']</b>' + hh[i]['mid']['def'][0]['hid'] + '加血';
+			}
+
+			for ( j = 0, k = hh[i]['mid']['def'].length; j < k; j++ )
+			{
+				hurt += lnick + hh[i]['mid']['def'][j]['hid'] + '恢复<font class="jiaxue">' + hh[i]['mid']['def'][j]['drop'] + '</font>血量，剩余血量'  + hh[i]['mid']['def'][j]['blood'] + '<br/>';
+
+				heroBlood( hh[i]['mid']['def'][j]['seat'], hh[i]['mid']['def'][j]['hid'], hh[i]['mid']['def'][j]['blood'] );
+				//console.log( hh[i]['mid']['def'][j]['seat'], hh[i]['mid']['def'][j]['hid'], hh[i]['mid']['def'][j]['blood'] );
+			}
+		}
+
+		if ( hh[i]['mid']['att']['skill'] == 1 )
+		{
+		    skill = '&nbsp;普通攻击&nbsp;';
+		}
+		else if ( hh[i]['mid']['att']['skill'] == 2 )
+		{
+			skill = '&nbsp;小招&nbsp;';
+		}
+		else
+		{
+			skill = '&nbsp;大招&nbsp;';
+		}
+
+		rounds = hh[i]['rounds'];
+		desc += '<li><div class="details"><span id="sp_'+index+'" style="display:none;">'+hh[i]['mid']['att']['type']+'_'+hh[i]['mid']['att']['range']+'_'+hh[i]['mid']['att']['seat']+'_'+hh[i]['mid']['def'][0]['seat']+'</span><h3>' + index + '.第' + rounds + '回合</h3><h4>' + range + skill + '</h4></div><br/><p>' + hurt + '</p></li><canvas id="canvas_'+index+'" width="250" height="150"></canvas>';
+		index++;
+	}
+
+	$e( 'jobs' ).innerHTML = desc;
+
+	desc = '';
+	var h , kk;
+	if ( data['battle']['win']['status'] == 1 )
+	{
+		desc = '<li>左边胜利</li>';
+		kk = left;
+		h  = oleft;
+	}
+	else
+	{
+		desc = '<li>右边胜利</li>';
+		kk = right;
+		h  = oright;
+	}
+
+    var diff, blood;
+	for ( var key in kk )
+	{
+		blood = kk[key]['blood'];
+		diff  = kk[key]['blood'] - h[key];
+		desc += '<li>hid:' + key + '&nbsp;&nbsp;&nbsp;剩余血量:' + blood + '&nbsp;&nbsp;&nbsp;受到伤害<font class="shanghai">' + diff + '</font></li>';
+	}
+	$e( 'honorsAwards' ).innerHTML = desc;
+
+	initNobody();
+	for (i = 1; i < index; i++ )
+    {
+	    draw( i );
+    }
+};
+
+var heroBlood = function( seat, hid, blood ){
+	if ( seat > 6 )
+	{
+		right[hid]['blood'] = blood;
+	}
+	else
+	{
+		left[hid]['blood'] = blood;
+	}
+};
+
+var draw = function( kk ){
+	var ctx = $e( 'canvas_' + kk ).getContext('2d');
+	var sp = $e( 'sp_'+kk ).innerHTML;
+	var a = sp.split( '_' );
+	var type = a[0], range = a[1], att = a[2], def = a[3];
+	var k = 1;
+	var temp;
+	var dead;
+	var m, len;
+	for ( var i = 1; i <= 3; i++ )
+	{
+		for ( var j = 1; j <= 4; j++ )
+		{
+			if ( list[k] == 'X' )
+			{
+				ctx.fillStyle = 'GoldEnrod';
+			    ctx.fillRect( j*25 + j*10, i*25 + i*10, 25, 25 );
+                ctx.font="20px HelveticaNeue";
+			    ctx.fillStyle = '#000000';
+			    ctx.fillText( '', j*25 + j*10, i*28 + i * 15 );
+			    k++;
+				continue;
+			}
+			dead = false;
+			if ( huihe[kk] )
+			{
+				for ( m = 0, len = huihe[kk].length; m < len; m++ )
+				{
+					if ( ( huihe[kk][m]['seat'] == list[k] ) && ( huihe[kk][m]['blood'] <= 0 ) )
+					{
+						deadList.push( list[k] );
+						dead = true;
+						break;
+					}
+				}
+			}
+			if ( !dead )
+			{
+				for ( m = 0, len = deadList.length; m < len; m++ )
+				{
+					if ( deadList[m] == list[k] )
+					{
+						dead = true;
+						break;
+					}
+				}
+			}
+			if ( dead )
+			{
+				ctx.fillStyle = 'gray';
+			}
+			else
+			{
+				if ( type == 1 )
+				{
+					if ( list[k] == att )
+					{
+						ctx.fillStyle = 'SkyBlue';
+					}
+					else
+					{
+						if ( range == 100 )
+						{
+							if ( def > 7 )
+							{
+								if ( list[k] > 7 )
+								{
+									ctx.fillStyle = 'red';
+								}
+								else
+								{
+									ctx.fillStyle = 'GoldEnrod';
+								}
+							}
+							else
+							{
+								ctx.fillStyle = 'GoldEnrod';
+							}
+						}
+						else
+						{
+							if ( list[k] == def )
+							{
+								ctx.fillStyle = 'red';
+							}
+							else
+							{
+								ctx.fillStyle = 'GoldEnrod';
+							}
+						}
+					}
+				}
+				else
+				{
+					if ( list[k] == att )
+					{
+						ctx.fillStyle = 'SkyBlue';
+					}
+					else
+					{
+						if ( range == 100 )
+						{
+							if ( att > 7 )
+							{
+								if ( list[k] > 7 )
+								{
+									ctx.fillStyle = 'green';
+								}
+								else
+								{
+									ctx.fillStyle = 'GoldEnrod';
+								}
+							}
+							else
+							{
+								if ( list[k] < 7 )
+								{
+									ctx.fillStyle = 'green';
+								}
+								else
+								{
+									ctx.fillStyle = 'GoldEnrod';
+								}
+							}
+						}
+						else
+						{
+							if ( list[k] == def )
+							{
+								ctx.fillStyle = 'green';
+							}
+							else
+							{
+								ctx.fillStyle = 'GoldEnrod';
+							}
+						}
+					}
+				}
+			}
+			//ctx.fillStyle = 'GoldEnrod';
+			ctx.fillRect( j*25 + j*10, i*25 + i*10, 25, 25 );
+            ctx.font="20px HelveticaNeue";
+			//ctx.fillStyle = '#ff0000';
+			ctx.fillStyle = '#000000';
+			ctx.fillText( list[k], j*25 + j*10, i*28 + i * 15 );
+			k++;
+			
+			//ctx.strokeText('aa', 100, 100);
+		}
+	}
+};
+
+window.onload = function(){ loadJS( {'src':'http://192.168.0.199/gate.php?gate=fight_test&uid=10001&fuid=10001&cb=showResult'} ); };
+</script>
+</head>
+<body>
+<div id="wrapper">
+
+<h2 id="learn" class="sectionHead">队伍阵形</h2>
+<ul id="schools">
+</ul>
+<div class="clear"></div>
+
+<h2 id="ribbon" class="sectionHead">战斗结果</h2>
+<ul id="honorsAwards">
+</ul>
+<div class="clear"></div>
+
+<h2 id="clock" class="sectionHead">战斗模拟</h2>
+<ul id="jobs">
+</ul>
+<div class="clear"></div>
+</div>
+</body>
+</html>

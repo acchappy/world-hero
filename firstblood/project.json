@@ -1,0 +1,137 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "cocostudio"],
+
+    "jsList" : [
+        "src/common.js",
+
+        "src/data/debug.js",
+        "src/data/protocol.js",
+        "src/data/login.js",
+        "src/data/text.js",
+        "src/data/alive.js",
+        "src/data/battle.js",
+        "src/data/package.js",
+        "src/data/aoyi.js",
+        "src/data/hero.js",
+        "src/data/player.js",
+        "src/data/quality.js",
+        "src/data/monster.js",
+        "src/data/simple_map.js",
+        "src/data/elite_map.js",
+        "src/data/task.js",
+        "src/data/tower.js",
+
+        "src/hero/a_spine.js",
+        "src/hero/a_spinehero.js",
+        "src/hero/jianshi.js",
+        "src/hero/xiunv.js",
+        "src/hero/heianfashi.js",
+        "src/hero/weijingren.js",
+        "src/hero/yemanren.js",
+        "src/hero/equan.js",
+
+        "src/net/response.js",
+        "src/net/http.js",
+        "src/net/socket.js",
+
+        "src/common/shader.js",        
+        "src/common/tipdlg.js",
+        "src/common/message.js",
+        "src/common/notification_center.js",        
+        "src/common/scene_manager.js",        
+        "src/common/loadingdlg.js",        
+        "src/common/errormessage.js",
+
+        "src/test/facebook_test.js",
+        "src/test/test_scene.js",
+
+        "src/battleshow/hero_blood.js",
+        "src/battleshow/hero_show.js",
+        "src/battleshow/attack_process.js",
+        "src/battleshow/battle_round.js",
+        "src/battleshow/battle_effect.js",
+        "src/battleshow/battle_show_scene.js",
+        "src/battleshow/battle_show_mc.js",
+
+        "src/ui/common/common.js",
+        "src/ui/common/herosmalltemplate.js",
+        "src/ui/common/return_button_template.js",
+        "src/ui/common/consumelayer/consume_mc.js",
+        "src/ui/common/consumelayer/consume_layer.js",
+
+        "src/ui/emailllayer/emaill_layer.js",
+        "src/ui/emailllayer/emaill_mc.js",
+
+        "src/ui/signlayer/sign_in_layer.js",
+        "src/ui/signlayer/sign_in_mc.js",
+
+        "src/ui/tavernscene/tavern_scene.js",
+        "src/ui/tavernscene/tavern_mc.js",
+
+        "src/ui/storescene/store_scene.js",
+        "src/ui/storescene/store_mc.js",
+
+        "src/ui/taskscene/task_scene.js",
+        "src/ui/taskscene/task_mc.js",
+
+        "src/ui/towerscene/tower_scene.js",
+        "src/ui/towerscene/tower_mc.js",
+
+        "src/ui/chapterscene/chapter_scene.js",
+        "src/ui/chapterscene/chapter_mc.js",
+
+        "src/ui/customsscene/customs_mc.js",
+        "src/ui/customsscene/customs_scene.js",
+
+        "src/ui/herostrengthenscene/hero_strengthen_scene.js",
+        "src/ui/herostrengthenscene/hero_strengthen_mc.js",
+
+        "src/ui/heromanagerscene/hero_manager_scene.js",
+        "src/ui/heromanagerscene/hero_manager_mc.js",
+
+        "src/ui/herouplevelscene/hero_upLevel_scene.js",
+        "src/ui/herouplevelscene/hero_upLevel_mc.js",
+
+        "src/ui/knapsackscene/knapsack_scene.js",
+        "src/ui/knapsackscene/knapsack_mc.js",
+
+        "src/ui/embattlescene/embattle_scene.js",
+        "src/ui/embattlescene/embattle_mc.js",
+
+        "src/ui/castscene/cast_scene.js",
+        "src/ui/castscene/cast_mc.js",
+
+        "src/ui/herolistscene/hero_list_scene.js",
+        "src/ui/herolistscene/hero_list_mc.js",
+
+        "src/ui/loaderscene/loader_scene.js",
+
+        "src/ui/heropresentationscene/hero_presentation_scene.js",
+        "src/ui/heropresentationscene/hero_presentation_mc.js",
+
+        "src/ui/mainscene/main_scene.js",
+        "src/ui/mainscene/main_mc.js",
+
+        "src/ui/loginscene/login_scene.js",
+        "src/ui/loginscene/login_mc.js", 
+
+        "src/battle/zorder.js",        
+        "src/battle/hurt.js",
+        "src/battle/hero.js",
+        "src/battle/attack.js",
+        "src/battle/battle_ai.js",       
+        "src/battle/battle_scene.js",
+
+        "src/resource.js",
+        "src/app.js"
+    ]
+}

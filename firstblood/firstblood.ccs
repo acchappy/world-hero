@@ -1,0 +1,371 @@
+<Solution>
+  <PropertyGroup Name="firstblood" Version="2.3.2.3" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="background">
+          <Image Name="bg1.jpg" />
+          <Image Name="bg2.jpg" />
+          <Image Name="bg3.jpg" />
+          <Image Name="bg4.jpg" />
+          <Image Name="bg5.jpg" />
+          <Image Name="bg6.jpg" />
+          <Image Name="bg7.jpg" />
+          <Image Name="bg8.jpg" />
+          <Image Name="bg9.jpg" />
+          <Image Name="bg10.jpg" />
+        </Folder>
+        <Project Name="mainscene.csd" Type="Scene" />
+        <Project Name="heromanagerscene.csd" Type="Scene" />
+        <Project Name="battleshowscene.csd" Type="Scene" />
+        <Folder Name="mainscene">
+          <Image Name="ms_activitybtn.png" />
+          <Image Name="ms_bagbtn.png" />
+          <Image Name="ms_chatbtn.png" />
+          <Image Name="ms_firstpaybtn.png" />
+          <Image Name="ms_herobtn.png" />
+          <Image Name="ms_jiubabtn.png" />
+          <Image Name="ms_loginrewardbtn.png" />
+          <Image Name="ms_mailbtn.png" />
+          <Image Name="ms_missionbtn.png" />
+          <Image Name="ms_pay.png" />
+          <Image Name="ms_pvebtn.png" />
+          <Image Name="ms_pvpbtn.png" />
+          <Image Name="ms_rankbtn.png" />
+          <Image Name="ms_shopbtn.png" />
+          <Image Name="ms_signbtn.png" />
+          <Image Name="ms_teambtn.png" />
+          <Image Name="ms_playericon.png" />
+          <Image Name="ms_playerframe.png" />
+          <Image Name="ms_challengebtn.png" />
+          <Image Name="ms_communitybtn.png" />
+          <Image Name="ms_friendbtn.png" />
+          <Image Name="ms_secretarybtn.png" />
+          <Image Name="ms_unionbtn.png" />
+          <Image Name="ms_timebg.png" />
+          <Image Name="ms_playerinfobg.png" />
+        </Folder>
+        <Folder Name="heromanagerscene">
+          <Image Name="hm_herobackground.png" />
+          <Image Name="hm_layerbackground.png" />
+          <Image Name="hm_layerequipagebtn.png" />
+          <Image Name="hm_layerfighting.png" />
+          <Image Name="hm_layerheroattribute.png" />
+          <Image Name="hm_layerintensifybtn.png" />
+          <Image Name="hm_layername.png" />
+          <Image Name="hm_nothaveheros.png" />
+          <Image Name="hm_sourcebtn.png" />
+          <Image Name="hm_heroicon.png" />
+        </Folder>
+        <Project Name="herostrengthenscene.csd" Type="Scene" />
+        <Folder Name="herostrengthenscene">
+          <Image Name="es_arrow.png" />
+          <Image Name="es_equipbg.png" />
+          <Image Name="es_equipdescbg.png" />
+          <Image Name="es_herobg.png" />
+          <Image Name="es_heroicon.png" />
+          <Image Name="es_onekeyupgrade.png" />
+          <Image Name="es_scenename.png" />
+          <Image Name="es_upgrade.png" />
+          <Image Name="es_tagstrong.png" />
+        </Folder>
+        <Project Name="herouplevelscene.csd" Type="Scene" />
+        <Folder Name="herouplevelscene">
+          <Image Name="hul_scenename.png" />
+          <Image Name="hul_experiencebg.png" />
+          <Image Name="hul_heronew.png" />
+          <Image Name="hul_nothaveuplevelstuff.png" />
+          <Image Name="hul_biguplevelstuff.png" />
+          <Image Name="hul_upskill_press.png" />
+          <Image Name="hul_uplevel_press.png" />
+          <Image Name="hul_upstars_press.png" />
+          <Image Name="hul_uptrait_press.png" />
+          <Image Name="hul_tagstrong.png" />
+          <Image Name="hul_hero.png" />
+          <Image Name="hul_source.png" />
+          <Image Name="hul_button.png" />
+          <Image Name="hul_starlevelloadingbar.png" />
+          <Image Name="hul_uptrait_normal.png" />
+          <Image Name="hul_uplevel_normal.png" />
+          <Image Name="hul_upskill_normal.png" />
+          <Image Name="hul_upstars_normal.png" />
+          <Image Name="hul_uplevelstuff.png" />
+          <Image Name="hul_attack.png" />
+          <Image Name="hul_blood.png" />
+          <Image Name="hul_marmor.png" />
+          <Image Name="hul_parmor.png" />
+          <Image Name="hul_speed.png" />
+          <Image Name="hul_battle.png" />
+          <Image Name="hul_cantupskill.png" />
+          <Image Name="hul_lv.png" />
+          <Image Name="hul_skill1.png" />
+          <Image Name="hul_skill2.png" />
+          <Image Name="hul_skill3.png" />
+          <Image Name="hul_skill4.png" />
+          <Image Name="hul_skillnum.png" />
+          <Image Name="hul_upskill.png" />
+          <Image Name="hul_skillbg.png" />
+          <Image Name="hul_skillframe.png" />
+        </Folder>
+        <Folder Name="knapsackscene">
+          <Image Name="ks_scenename.png" />
+          <Image Name="ks_all_normal.png" />
+          <Image Name="ks_all_press.png" />
+          <Image Name="ks_chip_normal.png" />
+          <Image Name="ks_chip_press.png" />
+          <Image Name="ks_consumables_normal.png" />
+          <Image Name="ks_consumables_press.png" />
+          <Image Name="ks_equipment_normal.png" />
+          <Image Name="ks_equipment_press.png" />
+          <Image Name="ks_material_normal.png" />
+          <Image Name="ks_material_press.png" />
+          <Image Name="ks_stuff.png" />
+          <Image Name="ks_sale.png" />
+          <Image Name="ks_use.png" />
+          <Image Name="ks_addbg.png" />
+          <Image Name="ks_addbtn.png" />
+          <Image Name="ks_gold.png" />
+          <Image Name="ks_jewel.png" />
+          <Image Name="ks_power.png" />
+          <Image Name="ks_smallgold.png" />
+          <Image Name="ks_noting.png" />
+        </Folder>
+        <Project Name="knapsackscene.csd" Type="Scene" />
+        <Folder Name="loginscene">
+          <Image Name="ls_facebookbtn.png" />
+          <Image Name="ls_youkebtn.png" />
+        </Folder>
+        <Project Name="loginscene.csd" Type="Scene" />
+        <Project Name="loadinglayer.csd" Type="Layer" />
+        <Project Name="castscene.csd" Type="Scene" />
+        <Folder Name="castscene">
+          <Image Name="c_addbg.png" />
+          <Image Name="c_addbtn.png" />
+          <Image Name="c_components1.png" />
+          <Image Name="c_components2.png" />
+          <Image Name="c_components4.png" />
+          <Image Name="c_components5.png" />
+          <Image Name="c_components6.png" />
+          <Image Name="c_destiny.png" />
+          <Image Name="c_gold.png" />
+          <Image Name="c_heroframe.png" />
+          <Image Name="c_heroicon.png" />
+          <Image Name="c_herostand.png" />
+          <Image Name="c_herostar.png" />
+          <Image Name="c_herotype.png" />
+          <Image Name="c_infobtn.png" />
+          <Image Name="c_jewel.png" />
+          <Image Name="c_power.png" />
+          <Image Name="c_replacebtn.png" />
+          <Image Name="c_scenename.png" />
+          <Image Name="c_strengthenbtn.png" />
+          <Image Name="c_talkbtn.png" />
+          <Image Name="c_components3.png" />
+          <Image Name="c_castbtn.png" />
+          <Image Name="c_allfight.png" />
+          <Image Name="c_halo.png" />
+        </Folder>
+        <Project Name="embattlescene.csd" Type="Scene" />
+        <Folder Name="embattlescene">
+          <Image Name="eb_attacktype.png" />
+          <Image Name="eb_guardtype.png" />
+          <Image Name="eb_scenename.png" />
+          <Image Name="eb_skilltype.png" />
+          <Image Name="eb_hero1.png" />
+          <Image Name="eb_hero2.png" />
+          <Image Name="eb_hero3.png" />
+          <Image Name="eb_hero4.png" />
+          <Image Name="eb_hero5.png" />
+          <Image Name="eb_hero6.png" />
+        </Folder>
+        <Project Name="herolistscene.csd" Type="Scene" />
+        <Folder Name="herolistscene">
+          <Image Name="hl_goupbtn.png" />
+          <Image Name="hl_heroicon.png" />
+          <Image Name="hl_herotype.png" />
+          <Image Name="hl_herobg.png" />
+          <Image Name="hl_scenename.png" />
+          <Image Name="hl_heroison.png" />
+        </Folder>
+        <Project Name="heropresentationscene.csd" Type="Scene" />
+        <Folder Name="heropresentationscene">
+          <Image Name="hp_herocard.png" />
+          <Image Name="hp_discussionbtn.png" />
+          <Image Name="hp_showbtn.png" />
+          <Image Name="hp_leftbtn.png" />
+          <Image Name="hp_rightbtn.png" />
+          <Image Name="hp_herobg.png" />
+        </Folder>
+        <Project Name="loadingscene.csd" Type="Scene" />
+        <Folder Name="loadingscene">
+          <Image Name="l_loadingbar.png" />
+        </Folder>
+        <Folder Name="font" />
+        <Folder Name="common">
+          <Image Name="qualitywhite.png" />
+          <Image Name="herostar.png" />
+          <Image Name="heroison.png" />
+          <Image Name="qualitystar.png" />
+          <Image Name="heroicon.png" />
+          <Image Name="hreoframe.png" />
+          <Image Name="tipdlgbg.png" />
+          <Image Name="returnbtn.png" />
+          <Image Name="addbg.png" />
+          <Image Name="addbtn.png" />
+          <Image Name="gold.png" />
+          <Image Name="jewel.png" />
+          <Image Name="power.png" />
+          <Image Name="hero.png" />
+        </Folder>
+        <Project Name="herosmalltemplate.csd" Type="Layer" />
+        <Project Name="tipdlglayer.csd" Type="Layer" />
+        <Project Name="tavernscene.csd" Type="Scene" />
+        <Folder Name="tavernscene">
+          <Image Name="t_diamondbuyone.png" />
+          <Image Name="t_diamondbuyten.png" />
+          <Image Name="t_diamondreturnbtn.png" />
+          <Image Name="t_diamondsummon.png" />
+          <Image Name="t_diamondsummonchoose.png" />
+          <Image Name="t_goldbugone.png" />
+          <Image Name="t_goldbugten.png" />
+          <Image Name="t_goldreturnbtn.png" />
+          <Image Name="t_goldsummon choose.png" />
+          <Image Name="t_goldsummon.png" />
+          <Image Name="t_scenename.png" />
+          <Image Name="t_againtentimesbtn.png" />
+          <Image Name="t_confirmbtn.png" />
+        </Folder>
+        <Project Name="chapterscene.csd" Type="Scene" />
+        <Folder Name="chapterscene">
+          <Image Name="cs_rudder_ordinary.png" />
+          <Image Name="cs_customs_elite.png" />
+          <Image Name="cs_rudder_elite.png" />
+          <Image Name="cs_customs_ordinary.png" />
+          <Image Name="common_button05.png" />
+          <Image Name="common_btl.png" />
+          <Image Name="common_qiyu-icon.png" />
+          <Image Name="albida.png" />
+          <Image Name="common_toplable.png" />
+          <Image Name="cs_customs_name.png" />
+          <Image Name="cs_customs_stars.png" />
+        </Folder>
+        <Project Name="returnlayer.csd" Type="Layer" />
+        <Project Name="customsscene.csd" Type="Scene" />
+        <Folder Name="customsscene">
+          <Image Name="c_icon.png" />
+          <Image Name="c_fightingbutton.png" />
+          <Image Name="c_btl.png" />
+          <Image Name="c_mopupbutton.png" />
+          <Image Name="c_normalbutton.png" />
+          <Image Name="c_energy.png" />
+          <Image Name="c_lable.png" />
+          <Image Name="c_locked.png" />
+          <Image Name="c_customsbuttonbg.png" />
+          <Image Name="c_customsbuttonlight.png" />
+          <Image Name="c_title.png" />
+          <Image Name="c_toplable.png" />
+          <Image Name="c_plankleft.png" />
+          <Image Name="c_plankmid.png" />
+          <Image Name="c_tankuang01.png" />
+          <Image Name="c_round.png" />
+          <Image Name="c_customsbutton1.png" />
+          <Image Name="c_rightbutton.png" />
+          <Image Name="c_infobg.png" />
+          <Image Name="c_customsbutton.png" />
+          <Image Name="c_starts.png" />
+          <Image Name="c_startsbg.png" />
+          <Image Name="c_needlv.png" />
+          <Image Name="c_sweepingbg.png" />
+          <Image Name="c_close.png" />
+          <Image Name="c_end.png" />
+          <Image Name="c_exp.png" />
+          <Image Name="c_stuff_bg.png" />
+          <Image Name="c_prize_bg.png" />
+        </Folder>
+        <Project Name="signinlayer.csd" Type="Layer" />
+        <Folder Name="signin">
+          <Image Name="si_stand.png" />
+          <Image Name="si_close.png" />
+          <Image Name="si_on.png" />
+          <Image Name="si_stuff.png" />
+          <Image Name="sigingiftbg.png" />
+          <Image Name="si_getbtn1.png" />
+          <Image Name="si_getbtn2.png" />
+          <Image Name="si_signingift.png" />
+        </Folder>
+        <Project Name="consumetemplate.csd" Type="Layer" />
+        <Folder Name="common_language" />
+        <Project Name="emailllayer.csd" Type="Layer" />
+        <Folder Name="emailllayer">
+          <Image Name="el_akeytoget_off.png" />
+          <Image Name="el_akeytoget_on.png" />
+          <Image Name="el_confirmbtn.png" />
+          <Image Name="el_layername.png" />
+          <Image Name="el_emaillicon.png" />
+          <Image Name="el_get.png" />
+          <Image Name="el_got.png" />
+          <Image Name="el_notread.png" />
+          <Image Name="el_read.png" />
+          <Image Name="el_stuff.png" />
+          <Image Name="el_congratulation.png" />
+          <Image Name="el_closebtn.png" />
+          <Image Name="el_letter_bg.png" />
+          <Image Name="el_letter_detail_bg.png" />
+          <Image Name="el_letter_detail.png" />
+          <Image Name="el_prize.png" />
+          <Image Name="el_prize_bg.png" />
+        </Folder>
+        <Folder Name="storescene">
+          <Image Name="ss_left_btn.png" />
+          <Image Name="ss_refresh_btn.png" />
+          <Image Name="ss_right_btn.png" />
+          <Image Name="ss_scene_name.png" />
+          <Image Name="ss_store_groceries_normal.png" />
+          <Image Name="ss_store_groceries_select.png" />
+          <Image Name="ss_store_honor_normal.png" />
+          <Image Name="ss_store_honor_select.png" />
+          <Image Name="ss_store_trial_normal.png" />
+          <Image Name="ss_store_trial_select.png" />
+          <Image Name="ss_store_union_normal.png" />
+          <Image Name="ss_store_union_select .png" />
+          <Image Name="ss_stuff.png" />
+          <Image Name="ss_stuff_bg.png" />
+          <Image Name="ss_sell_out.png" />
+          <Image Name="ss_renew_bg.png" />
+          <Image Name="ss_renew_close.png" />
+          <Image Name="ss_renew_confirm.png" />
+        </Folder>
+        <Project Name="storescene.csd" Type="Scene" />
+        <Folder Name="taskscene">
+          <Image Name="ts_everyday_task_normal.png" />
+          <Image Name="ts_everyday_task_seclect.png" />
+          <Image Name="ts_get.png" />
+          <Image Name="ts_go_to_btn.png" />
+          <Image Name="ts_principal_task_normal.png" />
+          <Image Name="ts_principal_task_seclect.png" />
+          <Image Name="ts_stuff.png" />
+          <Image Name="ts_scene_name.png" />
+        </Folder>
+        <Project Name="taskscene.csd" Type="Scene" />
+        <Project Name="towerscene.csd" Type="Scene" />
+        <Folder Name="towerscene">
+          <Image Name="ts_storey_bg.png" />
+          <Image Name="ts_storey_frame.png" />
+          <Image Name="ts_reward.png" />
+          <Image Name="ts_stuff.png" />
+          <Image Name="ts_lock.png" />
+          <Image Name="ts_akeytoget.png" />
+          <Image Name="ts_closebtn.png" />
+        </Folder>
+        <Folder Name="battlescene">
+          <Image Name="lose.png" />
+          <Image Name="replay.png" />
+          <Image Name="win.png" />
+        </Folder>
+        <Project Name="battlewinlayer.csd" Type="Layer" />
+        <Project Name="battleloselayer.csd" Type="Layer" />
+        <Project Name="buzhenscene.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

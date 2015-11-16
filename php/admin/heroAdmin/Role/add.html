@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+    <script type="text/javascript" src="../Js/jquery.js"></script>
+    <script type="text/javascript" src="../Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../Js/ckform.js"></script>
+    <script type="text/javascript" src="../Js/common.js"></script>
+
+ 
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<iframe name="res" style="display:none;" src="about:blank" frameborder=“0” scrolling="yes" height="0px" width="0px"></iframe>
+<form action="/json.php" method="post" class="definewidth m20" target="res" name="_form" id="_form">
+<input type="hidden" name="gate" value="hero_add" />
+<input type="hidden" name="fmt" value="1" />
+<input type="hidden" name="cb" value="addStatus" />
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <td width="10%" class="tableleft">英雄id</td>
+        <td><input type="text" name="hid" id="hid" /></td>
+    </tr>
+    <tr>
+        <td class="tableleft">简体名字</td>
+        <td><input type="text" name="name_zh" id="name_zh" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">繁体名字</td>
+        <td><input type="text" name="name_tw" id="name_tw" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">英语名字</td>
+        <td><input type="text" name="name_en" id="name_en" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">泰语名字</td>
+        <td><input type="text" name="name_th" id="name_th" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">印尼名字</td>
+        <td><input type="text" name="name_id" id="name_id" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">越南名字</td>
+        <td><input type="text" name="name_vn" id="name_vn" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">初始生命</td>
+        <td><input type="text" name="init_blood" id="init_blood" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">初始护甲系数</td>
+        <td><input type="text" name="init_parmor_m" id="init_parmor_m" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">初始魔抗系数</td>
+        <td><input type="text" name="init_marmor_m" id="init_marmor_m" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">初始攻击</td>
+        <td><input type="text" name="init_attack" id="init_attack" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">护甲穿透系数</td>
+        <td><input type="text" name="init_cross" id="init_cross" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">合成需要碎片数量</td>
+        <td><input type="text" name="fragment" id="fragment" /></td>
+    </tr>
+	<tr>
+        <td class="tableleft">英雄品质</td>
+        <td><input type="radio" name="grade" value='B' checked />B&nbsp;&nbsp;
+		    <input type="radio" name="grade" value='A' />A&nbsp;&nbsp;
+			<input type="radio" name="grade" value='A+' />A+&nbsp;&nbsp;
+			<input type="radio" name="grade" value='S' />S&nbsp;&nbsp;
+			<input type="radio" name="grade" value='S+' />S+&nbsp;&nbsp;
+			<input type="radio" name="grade" value='SS' />SS&nbsp;&nbsp;
+		</td>
+    </tr>
+	<tr>
+        <td class="tableleft">攻击类型</td>
+        <td><input type="radio" name="attack_t" value=1 checked />物理攻击&nbsp;&nbsp;
+		    <input type="radio" name="attack_t" value=2 />魔法攻击&nbsp;&nbsp;
+			<input type="radio" name="attack_t" value=3 />治愈&nbsp;&nbsp;
+		</td>
+    </tr>
+	<tr>
+        <td class="tableleft">特殊技能</td>
+        <td><input type="radio" name="spe_skill" value=1 checked />闪避&nbsp;&nbsp;
+		    <input type="radio" name="spe_skill" value=2 />格档&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=3 />坚韧&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=4 />回血&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=5 />重生&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=11 />暴击&nbsp;&nbsp;
+		    <input type="radio" name="spe_skill" value=12 />必杀&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=13 />加深&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=14 />圣剑&nbsp;&nbsp;
+			<input type="radio" name="spe_skill" value=15 />重击&nbsp;&nbsp;
+		</td>
+    </tr>
+    <tr>
+        <td class="tableleft">状态</td>
+        <td>
+            <input type="radio" name="status" value="1" checked/> 启用
+           <input type="radio" name="status" value="0"/> 禁用
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button type="button" class="btn btn-primary" onclick="javascript:check();">保存</button>&nbsp;&nbsp;
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+<script>
+/*
+    $(function () {       
+		$('#backid').click(function(){
+				//window.location.href="index.html";
+				window.history.back();
+		 });
+
+    });
+*/
+	window.onload = function(){
+		var hash = window.location.hash;
+		if ( !hash )
+		{
+			return;
+		}
+
+		var hid = hash.split( '=' )[1];
+		loadJS( { "src":"/json.php?gate=hero_list&cb=showHid&hid="+hid} );
+	};
+	function showHid( data )
+	{
+		var len = data.length;
+		if ( len < 1 )
+		{
+			return;
+		}
+
+		var d = data[0];
+		for ( var k in d )
+		{
+			if ( ( k == 'grade' ) || ( k == 'attack_t' ) || ( k == 'spe_skill' ) || ( k == 'status' ) )
+			{
+				checkRadio( k, d[k] );
+			}
+			else
+			{
+				$e( k ).value = d[k];
+			}
+		}
+	}
+	function check()
+	{
+		var hid = $e('hid').value;
+		if ( !hid )
+		{
+			alert( '英雄id不能为空' );
+			return;
+		}
+
+		$('#_form').submit();
+	}
+	function addStatus( obj )
+	{
+		alert( obj['message'] );
+	}
+</script>

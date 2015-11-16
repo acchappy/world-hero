@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>World Heroes 对战测试</title>
+<style>
+
+body {
+    width: 800px;
+    margin: 40px auto;
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;
+}
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td, .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;    
+}
+
+.bordered th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+
+
+/*----------------------*/
+
+.zebra td, .zebra th {
+    padding: 10px;
+    border-bottom: 1px solid #f2f2f2;    
+}
+
+.zebra tbody tr:nth-child(even) {
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+}
+
+.zebra th {
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
+    background-image:    -moz-linear-gradient(top, #f5f5f5, #eee);
+    background-image:     -ms-linear-gradient(top, #f5f5f5, #eee);
+    background-image:      -o-linear-gradient(top, #f5f5f5, #eee); 
+    background-image:         linear-gradient(top, #f5f5f5, #eee);
+}
+
+.zebra th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;  
+}
+
+.zebra th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.zebra th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.zebra tfoot td {
+    border-bottom: 0;
+    border-top: 1px solid #fff;
+    background-color: #f1f1f1;  
+}
+
+.zebra tfoot td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.zebra tfoot td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+.zebra tfoot td:only-child{
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px
+    border-radius: 0 0 6px 6px
+}
+  
+</style>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+var leftHero  = new Array();
+var rightHero = new Array();
+var heroLen = 12;
+var sideLen = 6;
+var leftAttackBegin, rightAttackBegin, leftAttacked, rightAttacked;
+//对位数组
+var against = [0,7,8,9,7,8,9,1,2,3,1,2,3];
+
+var static_armor = 1000.0;
+var static_miss  = 1000.0;
+var static_crit  = 1000;
+var huihe = 1;
+function $(id)
+{
+	return document.getElementById(id);
+}
+
+function initHero()
+{
+    var i;
+    for ( i = 0; i <= heroLen; i++ )
+    {
+        leftHero[i]  = { 'name':'','health':0,'attack':0,'armor':0,'miss':0,'hit':0,'crit':0,'sk':0,'aoe':0 };
+        rightHero[i] = { 'name':'','health':0,'attack':0,'armor':0,'miss':0,'hit':0,'crit':0,'sk':0,'aoe':0 };
+    }
+
+    leftAttackBegin  = 1;
+    rightAttackBegin = 7;
+    huihe = 1;
+}
+
+function attackBeginLeft()
+{
+    if ( leftAttackBegin > sideLen )
+    {
+        leftAttackBegin = 1;
+        huihe++;
+    }
+    var i = 0;
+    //console.log( leftAttackBegin + '  ' + leftHero[leftAttackBegin]['health'] );
+    if ( leftHero[leftAttackBegin]['health'] > 0 )
+    {
+        i = leftAttackBegin;
+    }
+    leftAttackBegin++;
+
+    return i;
+    /*
+    var i;
+    for ( i = index + 1; i <= heroLen; i++ )
+    {
+        if ( arr[i]['health'] > 0 )
+        {
+            return i;
+        }
+    }
+
+    for ( i = 1; i<= index; i++ )
+    {
+        if ( arr[i]['health'] > 0 )
+        {
+            return i;
+        }
+    }
+    */
+}
+
+function attackBeginRight()
+{
+    if ( rightAttackBegin > heroLen )
+    {
+        rightAttackBegin = 7;
+    }
+
+    var i = 0;
+    if ( rightHero[rightAttackBegin]['health'] > 0 )
+    {
+        i = rightAttackBegin;
+    }
+    rightAttackBegin++;
+
+    return i;
+}
+
+function attackAgainst(arr, index)
+{
+    var i = against[index];
+    if ( arr[i]['health'] > 0 )
+    {
+        return i;
+    }
+
+    for ( var j = 1; j <= heroLen; j++ )
+    {
+        if ( arr[j]['health'] > 0 )
+        {
+            return j;
+        }
+    }
+
+    return 0;
+}
+
+function clearHero(i)
+{
+	$('hero'+i+'_name').value = '';
+	$('hero'+i+'_health').value = '';
+	$('hero'+i+'_attack').value = '';
+	$('hero'+i+'_armor').value = '';
+	$('hero'+i+'_miss').value = '';
+	$('hero'+i+'_hit').value = '';
+	$('hero'+i+'_crit').value = '';
+    $('hero'+i+'_sk').value = 0;
+    $('hero'+i+'_aoe').value = 0;
+
+    $('h'+i).innerHTML = '';
+}
+
+function testHit(miss,hit)
+{
+	var a = miss - hit;
+	if ( a <= 0 )
+	{
+		return true;
+	}
+
+	var result = (1.0/(1.0+a/static_miss)) * 100;
+
+	var randon = Math.random() * 100;
+
+	if ( result >= randon )
+	{
+		return true;
+	}
+
+	return false;
+}
+
+function testCrit(crit)
+{
+	var result = crit * 100 / static_crit;
+	var randon = Math.random() * 100;
+
+	if ( result < randon )
+	{
+		return false;
+	}
+
+	return true;
+}
+
+function sleep(sleepTime) 
+{
+       for(var start = Date.now(); Date.now() - start <= sleepTime; ){} 
+}
+
+function testFight()
+{
+    initHero();
+    var name, health, attack, armor, miss, hit, crit, sk, aoe;
+    for ( var i = 1; i <= heroLen; i++ )
+    {
+        name   = $('hero'+i+'_name').value;
+        health = parseInt( $('hero'+i+'_health').value, 10 );
+        if ( health <= 0 )
+        {
+            continue;
+        }
+        attack = parseInt( $('hero'+i+'_attack').value, 10 );
+        armor  = parseInt( $('hero'+i+'_armor').value, 10);
+        miss   = parseInt( $('hero'+i+'_miss').value, 10 );
+        hit    = parseInt( $('hero'+i+'_hit').value, 10 );
+        crit   = parseInt( $('hero'+i+'_crit').value, 10 );
+        sk     = parseInt( $('hero'+i+'_sk').value, 10 );
+        aoe    = parseInt( $('hero'+i+'_aoe').value, 10 );
+
+        if ( i < 7 )
+        {
+            leftHero[i]['name']   = name;
+            leftHero[i]['health'] = health;
+            leftHero[i]['attack'] = attack;
+            leftHero[i]['armor']  = armor;
+            leftHero[i]['miss']   = miss;
+            leftHero[i]['hit']    = hit;
+            leftHero[i]['crit']   = crit;
+            leftHero[i]['sk']     = sk;
+            leftHero[i]['aoe']    = aoe;
+
+            leftHero[0]['health']++;
+        }
+        else
+        {
+            rightHero[i]['name']   = name;
+            rightHero[i]['health'] = health;
+            rightHero[i]['attack'] = attack;
+            rightHero[i]['armor']  = armor;
+            rightHero[i]['miss']   = miss;
+            rightHero[i]['hit']    = hit;
+            rightHero[i]['crit']   = crit;
+            rightHero[i]['sk']     = sk;
+            rightHero[i]['aoe']    = aoe;
+
+            rightHero[0]['health']++;
+        }
+
+        $('h'+i).innerHTML = name;
+    }
+
+	var obj = $('desc');
+	var desc = '<thead><tr><th style="width:10%">回合数</th><th style="width:90%">战斗描述</th></tr></thead><tfoot><tr><td>&nbsp;</td><td></td></tr></tfoot>';
+	var blood = 0.0;
+    var begin = 0;
+
+	do{
+		if ( (leftHero[0]['health'] <= 0) || (rightHero[0]['health'] <= 0) )
+		{
+			desc += '<tr><td>' + huihe + '</td><td>战斗结束</td></tr>';
+			obj.innerHTML = desc;
+			break;
+		}
+
+        begin = attackBeginLeft();
+        if ( begin > 0 )
+        {
+            rightAttacked = attackAgainst(rightHero, begin);
+            if ( rightAttacked <= 0 )
+            {
+                desc += '<tr><td>' + huihe + '</td><td>战斗结束</td></tr>';
+                obj.innerHTML = desc;
+                break;
+            }
+
+            var left = leftHero[begin], right = rightHero[rightAttacked];
+		    var hit = testHit(right['miss'], left['hit']);
+		    desc += '<tr><td>' + huihe + '</td><td>';
+		    if (hit)
+		    {
+			    blood = left['attack'] / (1.0 + right['armor'] / static_armor);
+			    blood = parseInt( blood, 10 );
+
+			    //console.log( '左V右：攻 '+left['attack']+' 守 '+right['armor']+' 血 '+blood );
+			    if ( testCrit( left['crit'] ) )
+			    {
+				    desc += left['name'] + '使出了暴击，';
+				    blood *= 2;
+			    }
+
+			    right['health'] -= blood;
+			    desc += left['name'] + '造成了' + blood + '点伤害，';
+		    }
+		    else
+		    {
+			    desc += right['name'] + '躲避了这次伤害，';
+		    }
+		    desc += right['name'] + '还剩' + right['health'] + '生命</td></tr>';
+            if ( right['health'] <= 0 )
+            {
+                rightHero[0]['health']--;
+            }
+        }
+		
+
+        begin = attackBeginRight();
+        if ( begin > 0 )
+        {
+            leftAttacked = attackAgainst(leftHero, begin);
+            if ( leftAttacked <= 0 )
+            {
+                desc += '<tr><td>' + huihe + '</td><td>战斗结束</td></tr>';
+                obj.innerHTML = desc;
+                break;
+            }
+            left  = leftHero[leftAttacked];
+            right = rightHero[begin];
+
+		    hit = testHit( left['miss'], right['hit'] );
+		    desc += '<tr><td>' + huihe + '</td><td>';
+		    if (hit)
+		    {
+			    blood = right['attack'] / (1.0 + left['armor'] / static_armor);
+			    blood = parseInt( blood, 10 );
+			    //console.log( '右V左：攻 '+right['attack']+' 守 '+left['armor']+' 血 '+blood );
+			    if ( testCrit( right['crit'] ) )
+			    {
+				    desc += right['name'] + '使出了暴击，';
+				    blood *= 2;
+			    }
+
+			    left['health'] -= blood;
+			    desc += right['name'] + '造成了' + blood + '点伤害，';
+		    }
+		    else
+		    {
+			    desc += left['name'] + '躲避了这次伤害，';
+		    }
+		    desc += left['name'] + '还剩' + left['health'] + '生命</td></tr>';
+            if ( left['health'] <= 0 )
+            {
+                leftHero[0]['health']--;
+            }
+        }
+
+		obj.innerHTML = desc;
+
+		//sleep(1000);
+
+		if ( huihe >= 50 )
+		{
+			break;
+		}
+
+	}while(true);
+}
+</script>
+
+<h2>游戏阵型</h2>
+<table class="bordered">
+    <thead>
+
+    <tr>
+        <th style="width:20%;">左方英雄编号</th>        
+        <th style="width:20%;">&nbsp;</th>
+        <th style="width:20%;">&nbsp;</th>
+        <th style="width:20%;">右方英雄编号</th>
+        <th style="width:20%;">&nbsp;</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>4&nbsp;&nbsp;&nbsp;&nbsp;<span id="h4"></span></td>        
+        <td>1&nbsp;&nbsp;&nbsp;&nbsp;<span id="h1"></span></td>
+        <td></td>
+        <td>11&nbsp;&nbsp;&nbsp;&nbsp;<span id="h7"></span></td>
+        <td>44&nbsp;&nbsp;&nbsp;&nbsp;<span id="h10"></span></td>
+    </tr>
+    <tr>
+        <td>5&nbsp;&nbsp;&nbsp;&nbsp;<span id="h5"></span></td>        
+        <td>2&nbsp;&nbsp;&nbsp;&nbsp;<span id="h2"></span></td>
+        <td></td>
+        <td>22&nbsp;&nbsp;&nbsp;&nbsp;<span id="h8"></span></td>
+        <td>55&nbsp;&nbsp;&nbsp;&nbsp;<span id="h11"></span></td>
+    </tr>
+    <tr>
+        <td>6&nbsp;&nbsp;&nbsp;&nbsp;<span id="h6"></span></td>        
+        <td>3&nbsp;&nbsp;&nbsp;&nbsp;<span id="h3"></span></td>
+        <td></td>
+        <td>33&nbsp;&nbsp;&nbsp;&nbsp;<span id="h9"></span></td>
+        <td>66&nbsp;&nbsp;&nbsp;&nbsp;<span id="h12"></span></td>
+    </tr>
+
+</table>
+
+<h2>左方英雄配置</h2>
+<table class="bordered">
+    <thead>
+
+    <tr>
+        <th>编号</th>
+        <th>英雄名字</th>        
+        <th>生命</th>
+        <th>攻击力</th>
+        <th>护甲</th>
+        <th>闪避</th>
+        <th>命中</th>
+        <th>暴击</th>
+        <th>小招</th>
+        <th>AOE</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>1</td>
+        <td><input type="text" id="hero1_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero1_health" style="width:100%"/></td>
+        <td><input type="text" id="hero1_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero1_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero1_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero1_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero1_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero1_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero1_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(1);"/></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><input type="text" id="hero2_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero2_health" style="width:100%"/></td>
+        <td><input type="text" id="hero2_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero2_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero2_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero2_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero2_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero2_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero2_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(2);"/></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><input type="text" id="hero3_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero3_health" style="width:100%"/></td>
+        <td><input type="text" id="hero3_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero3_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero3_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero3_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero3_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero3_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero3_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(3);"/></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><input type="text" id="hero4_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero4_health" style="width:100%"/></td>
+        <td><input type="text" id="hero4_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero4_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero4_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero4_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero4_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero4_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero4_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(4);"/></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td><input type="text" id="hero5_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero5_health" style="width:100%"/></td>
+        <td><input type="text" id="hero5_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero5_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero5_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero5_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero5_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero5_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero5_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(5);"/></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td><input type="text" id="hero6_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero6_health" style="width:100%"/></td>
+        <td><input type="text" id="hero6_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero6_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero6_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero6_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero6_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero6_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero6_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(6);"/></td>
+    </tr>
+
+</table>
+
+<br>
+
+<h2>右方英雄配置</h2>
+<table class="bordered">
+    <thead>
+
+    <tr>
+        <th>编号</th>
+        <th>英雄名字</th>        
+        <th>生命</th>
+        <th>攻击力</th>
+        <th>护甲</th>
+        <th>闪避</th>
+        <th>命中</th>
+        <th>暴击</th>
+        <th>小招</th>
+        <th>AOE</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>11</td>
+        <td><input type="text" id="hero7_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero7_health" style="width:100%"/></td>
+        <td><input type="text" id="hero7_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero7_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero7_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero7_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero7_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero7_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero7_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(7);"/></td>
+    </tr>
+    <tr>
+        <td>22</td>
+        <td><input type="text" id="hero8_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero8_health" style="width:100%"/></td>
+        <td><input type="text" id="hero8_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero8_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero8_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero8_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero8_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero8_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero8_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(8);"/></td>
+    </tr>
+    <tr>
+        <td>33</td>
+        <td><input type="text" id="hero9_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero9_health" style="width:100%"/></td>
+        <td><input type="text" id="hero9_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero9_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero9_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero9_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero9_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero9_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero9_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(9);"/></td>
+    </tr>
+    <tr>
+        <td>44</td>
+        <td><input type="text" id="hero10_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero10_health" style="width:100%"/></td>
+        <td><input type="text" id="hero10_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero10_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero10_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero10_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero10_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero10_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero10_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(10);"/></td>
+    </tr>
+    <tr>
+        <td>55</td>
+        <td><input type="text" id="hero11_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero11_health" style="width:100%"/></td>
+        <td><input type="text" id="hero11_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero11_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero11_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero11_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero11_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero11_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero11_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(11);"/></td>
+    </tr>
+    <tr>
+        <td>66</td>
+        <td><input type="text" id="hero12_name" style="width:100%"/></td>        
+        <td><input type="text" id="hero12_health" style="width:100%"/></td>
+        <td><input type="text" id="hero12_attack" style="width:100%"/></td>
+        <td><input type="text" id="hero12_armor" style="width:100%"/></td>
+        <td><input type="text" id="hero12_miss" style="width:100%"/></td>
+        <td><input type="text" id="hero12_hit" style="width:100%"/></td>
+        <td><input type="text" id="hero12_crit" style="width:100%"/></td>
+        <td><input type="text" id="hero12_sk" value=0 style="width:100%"/></td>
+        <td><input type="text" id="hero12_aoe" value=0 style="width:100%"/></td>
+        <td><input type="button" value="清空" onclick="clearHero(12);"/></td>
+    </tr>
+</table>
+
+<br>
+
+<table class="bordered">
+    <tr>
+        <td><input type="button" value="模拟攻击" onclick="testFight();" /></td>
+    </tr>
+</table>
+
+<br><br>
+
+<h2>战斗模拟</h2>
+<table class="zebra" id="desc">
+</table>
+
+<br>  
+
+</body>
+</html>

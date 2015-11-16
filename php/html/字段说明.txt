@@ -1,0 +1,47 @@
+玩家登录
+uid        游戏id
+name       玩家名字
+siteuid    平台id(如facebook、腾讯等)
+mcard      月卡到期时间，例如值是30，表示还剩30天到期，0表示没有月卡
+level      玩家等级
+exp        玩家当前经验
+nextexp    玩家升到下一级需要的总经验
+coin       玩家金币
+diamond    玩家钻石
+fight      玩家当前战斗力
+power      玩家当前体力
+imgurl     玩家头像url，如果是游客用户，头像地址是数字
+skey       加密字符串
+mtkey      加密字符串
+
+hero
+[
+    {
+        id        英雄ID
+        mid       重复的英雄ID
+        fight     英雄战斗力
+        patt      物理攻击力
+        matt      法术攻击力
+        parmor    物理护甲
+        marmor    法术护甲
+        blood     血量
+        miss      闪避
+        hit       命中
+        crit      暴击
+        star      星级
+        qulity    品质，10表示白色零品，11表示白色一品，20表示绿色零品，21表示绿色一品，如此类推
+        exp       英雄当前经验
+        level     英雄当前等级
+        nextexp   英雄升到下一级需要的总经验
+        type      英雄类型，1表示补血，2表示物理类肉盾，3表示法术类肉盾，4表示物理类输出，5表示法术类输出
+        stand     玩家排位，从1到6
+        fushi
+             [
+                 {
+                     id        符石ID
+                     mid       重复的符石ID
+                     patt      增加的攻击力
+                 }
+             ]
+    }
+]
